@@ -2,40 +2,6 @@
 #include "util.h"
 #include <stdbool.h>
 
-typedef struct dary_heap_node {
-    size_t vertex_id;
-    double priority;
-    size_t index;
-} dary_heap_node;
-
-typedef struct dary_heap_node_map_entry {
-    size_t                    vertex_id;
-    dary_heap_node*           heap_node; /* ptr to the actual heap node */
-    dary_heap_node_map_entry* chain_next;
-    dary_heap_node_map_entry* prev;
-    dary_heap_node_map_entry* next;
-} dary_heap_node_map_entry;
-
-typedef struct dary_heap_node_map {
-    dary_heap_node_map_entry** table;
-    dary_heap_node_map_entry* head;
-    dary_heap_node_map_entry* tail;
-    size_t                    table_capacity;
-    size_t                    size;
-    size_t                    max_allowed_size;
-    size_t                    mask;
-    float                     load_factor;
-} dary_heap_node_map;
-
-typedef struct dary_heap {
-    dary_heap_node_map* node_map;
-    dary_heap_node**    table;
-    size_t              size;
-    size_t              capacity;
-    size_t              degree;
-    size_t*             indices;
-} dary_heap;
-
 static const float  MINIMUM_LOAD_FACTOR = 0.2f;
 static const size_t MINIMUM_INITIAL_CAPACITY = 4;
 

@@ -106,8 +106,8 @@ Graph* buildGraph() {
     printf("Built the graph in %ld milliseconds.\n",
            (milliseconds_b - milliseconds_a));
 
-    printf("Source node: %zu\n", source_vertex_id);
-    printf("Target node: %zu\n", target_vertex_id);
+    printf("Source node: %d\n", (int) source_vertex_id);
+    printf("Target node: %d\n", (int) target_vertex_id);
 
     puts("--- Bidirectional Dijkstra:");
 
@@ -120,7 +120,7 @@ Graph* buildGraph() {
     milliseconds_b = milliseconds();
 
     for (i = 0; i < vertex_list_size(path); ++i) {
-        printf("%zu\n", vertex_list_get(path, i));
+        printf("%d\n", (int) vertex_list_get(path, i));
     }
 
     printf("Path length: %f\n", get_path_length(path, p_graph));
@@ -139,7 +139,7 @@ Graph* buildGraph() {
     milliseconds_b = milliseconds();
 
     for (i = 0; i < vertex_list_size(path_2); ++i) {
-        printf("%zu\n", vertex_list_get(path_2, i));
+        printf("%d\n", (int) vertex_list_get(path_2, i));
     }
 
     printf("Path length: %f\n", get_path_length(path_2, p_graph));
@@ -168,7 +168,7 @@ void testSameVertex() {
 
     path = find_shortest_path(graph, 0, 0, &rs);
 
-    printf("size: %zu\n", vertex_list_size(path));
+    printf("size: %d\n", (int) vertex_list_size(path));
 
     graph = allocGraph();
 
@@ -181,7 +181,7 @@ void testSameVertex() {
     path = find_shortest_path(graph, 0, 1, &rs);
 
     for (i = 0; i < vertex_list_size(path); ++i) {
-        printf("%zu\n", vertex_list_get(path, i));
+        printf("%d\n", (int) vertex_list_get(path, i));
     }
 }
 

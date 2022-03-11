@@ -1,9 +1,10 @@
 #include "graph_vertex_map.h"
 #include "util.h"
+#include <stdlib.h>
 
 graph_vertex_map_entry*
 graph_vertex_map_entry_alloc(size_t vertex_id,
-                             GraphVertex* vertex)
+                             struct GraphVertex* vertex)
 {
     graph_vertex_map_entry* entry = malloc(sizeof(*entry));
 
@@ -131,7 +132,7 @@ static int ensure_capacity(graph_vertex_map* map)
 
 int graph_vertex_map_put(graph_vertex_map* map,
                          size_t vertex_id,
-                         GraphVertex* vertex)
+                         struct GraphVertex* vertex)
 {
     size_t index;
     size_t hash_value;
@@ -210,7 +211,7 @@ int graph_vertex_map_contains_key(graph_vertex_map* map, size_t vertex_id)
     return 0;
 }
 
-GraphVertex* graph_vertex_map_get(graph_vertex_map* map,
+struct GraphVertex* graph_vertex_map_get(graph_vertex_map* map,
                                   size_t vertex_id)
 {
     size_t index;
@@ -367,22 +368,16 @@ int graph_vertex_map_iterator_has_next(
     return iterator->map->size - iterator->iterated_count;
 }
 
-int graph_vertex_map_iterator_next(
+void graph_vertex_map_iterator_next(
         graph_vertex_map_iterator* iterator,
         size_t* vertex_id_pointer,
-        GraphVertex** vertex_pointer)
+        struct GraphVertex** vertex_pointer)
 {
-    if (!iterator || !iterator->next_entry) {
-        return false;
-    }
-
     *vertex_id_pointer = iterator->next_entry->vertex_id;
     *vertex_pointer = iterator->next_entry->vertex;
 
     iterator->iterated_count++;
     iterator->next_entry = iterator->next_entry->next;
-
-    return true;
 }
 
 void graph_vertex_map_iterator_free(graph_vertex_map_iterator* iterator)

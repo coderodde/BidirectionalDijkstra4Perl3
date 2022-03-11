@@ -9,35 +9,35 @@
 extern "C" {
 #endif
 
-typedef struct vertex_set_entry vertex_set_entry;
-typedef struct vertex_set vertex_set;
+typedef struct vertex_set_entry {
+    size_t vertex_id;
+    struct vertex_set_entry* chain_next;
+    struct vertex_set_entry* prev;
+    struct vertex_set_entry* next;
+} vertex_set_entry;
 
-/***************************************************************************
-* Allocates a new, empty set with given hash function and given equality   *
-* testing function.                                                        *
-***************************************************************************/
+typedef struct vertex_set {
+    vertex_set_entry** table;
+    vertex_set_entry* head;
+    vertex_set_entry* tail;
+    size_t mod_count;
+    size_t table_capacity;
+    size_t size;
+    size_t mask;
+    size_t max_allowed_size;
+    float  load_factor;
+} vertex_set;
+
 vertex_set* vertex_set_alloc
         (size_t initial_capacity,
          float load_factor);
 
-/***************************************************************************
-* Adds 'p_element' to the set if not already there. Returns true if the    *
-* structure of the set changed.                                            *
-***************************************************************************/
 int vertex_set_add(vertex_set* p_set, size_t vertex_id);
 
-/***************************************************************************
-* Returns true if the set contains the element.                            *
-***************************************************************************/
 bool vertex_set_contains(vertex_set* p_set, size_t vertex_id);
 
 size_t vertex_set_size(vertex_set* p_set);
 
-/***************************************************************************
-* Deallocates the entire set. Only the set and its nodes are deallocated.  *
-* The user is responsible for deallocating the actual data stored in the   *
-* set.                                                                     *
-***************************************************************************/
 void vertex_set_free(vertex_set* p_set);
 
 #ifdef	__cplusplus

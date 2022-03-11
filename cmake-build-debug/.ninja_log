@@ -1,0 +1,18 @@
+# ninja log v5
+0	16	1646977825369157533	CMakeFiles/untitled.dir/main.c.o	3e69d8fe52f14765
+16	33	1646977825385157532	untitled	5de9808f14c8af3e
+0	51	1646979648553054961	CMakeFiles/untitled.dir/main.c.o	3e69d8fe52f14765
+4	63	1646979648565054960	CMakeFiles/untitled.dir/vertex_list.c.o	dc8c45cc5b22112a
+0	66	1646979648565054960	CMakeFiles/untitled.dir/dary_heap.c.o	c72874f3278987c3
+1	71	1646979648573054960	CMakeFiles/untitled.dir/distance_map.c.o	8c53169ef49e5384
+1	72	1646979648573054960	CMakeFiles/untitled.dir/graph.c.o	cbd67fe923021c89
+1	79	1646979648581054960	CMakeFiles/untitled.dir/graph_vertex_map.c.o	5b26895ead21f360
+0	80	1646979648581054960	CMakeFiles/untitled.dir/algorithm.c.o	586da04d7cb4a398
+2	80	1646979648581054960	CMakeFiles/untitled.dir/parent_map.c.o	74244b6b4f774bbe
+8	89	1646979648589054959	CMakeFiles/untitled.dir/vertex_set.c.o	6077297540eca91d
+0	29	1646979916413039892	CMakeFiles/untitled.dir/graph.c.o	cbd67fe923021c89
+1	33	1646979916417039891	CMakeFiles/untitled.dir/graph_vertex_map.c.o	5b26895ead21f360
+1	34	1646979916417039891	CMakeFiles/untitled.dir/weight_map.c.o	171db811c741e9a2
+0	43	1646979916429039891	CMakeFiles/untitled.dir/main.c.o	3e69d8fe52f14765
+0	54	1646979916437039890	CMakeFiles/untitled.dir/algorithm.c.o	586da04d7cb4a398
+54	73	1646979916457039889	untitled	588123c192998d73

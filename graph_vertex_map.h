@@ -1,6 +1,7 @@
 #ifndef COM_GITHUB_CODERODDE_BIDIR_SEARCH_GRAPH_VERTEX_MAP_H
 #define	COM_GITHUB_CODERODDE_BIDIR_SEARCH_GRAPH_VERTEX_MAP_H
 
+#include "graph.h"
 #include <stdlib.h>
 
 typedef struct graph_vertex_map_entry {
@@ -51,10 +52,9 @@ graph_vertex_map_iterator* graph_vertex_map_iterator_alloc
 int graph_vertex_map_iterator_has_next
         (graph_vertex_map_iterator* iterator);
 
-int grapH_vertex_map_iterator_next(
-        graph_vertex_map_iterator* iterator,
-        size_t* key_pointer,
-        struct GraphVertex** value_pointer);
+void graph_vertex_map_iterator_next(graph_vertex_map_iterator* iterator,
+                                    size_t* p_vertex_id,
+                                    struct GraphVertex** p_graph_vertex);
 
 void graph_vertex_map_iterator_free(
         graph_vertex_map_iterator* iterator);

@@ -49,17 +49,19 @@ void initGraph(Graph* p_graph)
 }
 
 void freeGraph(Graph* p_graph)
-{/*
+{
 	graph_vertex_map_iterator* p_iterator =
 		graph_vertex_map_iterator_alloc(p_graph->p_nodes);
 
 	GraphVertex* p_graph_vertex;
+    size_t p_vertex_id;
+
+    if (!p_iterator) {
+        abort();
+    }
 
 	while (graph_vertex_map_iterator_has_next(p_iterator))
 	{
-		size_t* p_vertex_id;
-		GraphVertex* p_graph_vertex;
-
 		graph_vertex_map_iterator_next(
 			p_iterator,
 			&p_vertex_id,
@@ -69,7 +71,7 @@ void freeGraph(Graph* p_graph)
 	}
 
 	graph_vertex_map_free(p_graph->p_nodes);
-	p_graph->p_nodes = NULL;*/
+	p_graph->p_nodes = NULL;
 }
 
 GraphVertex* addVertex(Graph* p_graph, size_t vertex_id)
@@ -194,6 +196,15 @@ int addEdge(Graph* p_graph,
         weight_map_put(p_temp_vertex->p_children,
                        head_vertex_id,
                        weight);
+
+        p_temp_vertex =
+                graph_vertex_map_get(p_graph->p_nodes,
+                                     head_vertex_id);
+
+        weight_map_put(p_temp_vertex->p_parents,
+                       tail_vertex_id,
+                       weight);
+
         return RETURN_STATUS_OK;
     }
 

@@ -296,7 +296,8 @@ void dary_heap_node_map_remove(dary_heap_node_map* map,
 
 void dary_heap_node_map_free(dary_heap_node_map* map)
 {
-    dary_heap_node_map_clear(map);
+    dary_heap_node_map_free(map);
+
     free(map->table);
     free(map);
 }
@@ -580,6 +581,7 @@ void dary_heap_clear(dary_heap* my_heap)
 void dary_heap_free(dary_heap* my_heap)
 {
     dary_heap_clear(my_heap);
+    dary_heap_node_map_free(my_heap->node_map);
     free(my_heap->indices);
     free(my_heap->table);
 }

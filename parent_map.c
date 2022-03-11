@@ -209,11 +209,6 @@ static void parent_map_clear(parent_map* map)
     parent_map_entry* next_entry;
     size_t index;
 
-    if (!map)
-    {
-        return;
-    }
-
     entry = map->head;
 
     while (entry)
@@ -232,11 +227,6 @@ static void parent_map_clear(parent_map* map)
 
 void parent_map_free(parent_map* map)
 {
-    if (!map)
-    {
-        return;
-    }
-
     parent_map_clear(map);
     free(map->table);
     free(map);

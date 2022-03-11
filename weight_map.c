@@ -294,11 +294,6 @@ void weight_map_clear(weight_map* map)
     weight_map_entry* next_entry;
     size_t index;
 
-    if (!map)
-    {
-        return;
-    }
-
     entry = map->head;
 
     while (entry)

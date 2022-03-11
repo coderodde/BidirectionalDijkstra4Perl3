@@ -371,7 +371,7 @@ int graph_vertex_map_iterator_has_next(
 void graph_vertex_map_iterator_next(
         graph_vertex_map_iterator* iterator,
         size_t* vertex_id_pointer,
-        struct GraphVertex** vertex_pointer)
+        GraphVertex** vertex_pointer)
 {
     *vertex_id_pointer = iterator->next_entry->vertex_id;
     *vertex_pointer = iterator->next_entry->vertex;

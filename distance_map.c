@@ -233,11 +233,6 @@ static void distance_map_clear(distance_map* map)
     distance_map_entry* next_entry;
     size_t index;
 
-    if (!map)
-    {
-        return;
-    }
-
     entry = map->head;
 
     while (entry)
@@ -256,11 +251,6 @@ static void distance_map_clear(distance_map* map)
 
 void distance_map_free(distance_map* map)
 {
-    if (!map)
-    {
-        return;
-    }
-
     distance_map_clear(map);
     free(map->table);
     free(map);

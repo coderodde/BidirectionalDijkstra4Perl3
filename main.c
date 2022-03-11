@@ -152,6 +152,8 @@ Graph* buildGraph() {
 
     vertex_list_free(path);
     vertex_list_free(path_2);
+
+    freeGraph(p_graph);
     return p_graph;
 }
 

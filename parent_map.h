@@ -2,7 +2,6 @@
 #define	COM_GITHUB_CODERODDE_BIDIR_SEARCH_PARENT_MAP_H
 
 #include <stdlib.h>
-#include <stdbool.h>
 
 typedef struct parent_map_entry {
     size_t vertex_id;

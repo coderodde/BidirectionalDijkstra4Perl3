@@ -1,6 +1,5 @@
 #include "util.h"
 #include "vertex_list.h"
-#include <stdbool.h>
 #include <stdlib.h>
 
 static const size_t MINIMUM_CAPACITY = 16;

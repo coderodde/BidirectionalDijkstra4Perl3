@@ -1,6 +1,5 @@
 #include "distance_map.h"
 #include "util.h"
-#include <stdbool.h>
 #include <stdlib.h>
 
 static distance_map_entry*
@@ -36,18 +35,11 @@ static int maxi(int a, int b)
     return a < b ? b : a;
 }
 
-/*******************************************************************************
-* Makes sure that the load factor is no less than a minimum threshold.         *
-*******************************************************************************/
 static float fix_load_factor(float load_factor)
 {
     return maxf(load_factor, MINIMUM_LOAD_FACTOR);
 }
 
-/*******************************************************************************
-* Makes sure that the initial capacity is no less than a minimum allowed and   *
-* is a power of two.                                                           *
-*******************************************************************************/
 static size_t fix_initial_capacity(size_t initial_capacity)
 {
     size_t ret;

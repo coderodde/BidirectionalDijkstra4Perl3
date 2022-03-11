@@ -13,7 +13,7 @@ typedef struct GraphVertex {
 
 typedef struct Graph {
     /* Maps each node ID to a vertex: */
-    struct graph_vertex_map* p_nodes;
+    graph_vertex_map* p_nodes;
 } Graph;
 
 void initGraphVertex(GraphVertex* p_graph_vertex, size_t id);

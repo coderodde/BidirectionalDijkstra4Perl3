@@ -1,5 +1,4 @@
 #include "vertex_set.h"
-#include <stdbool.h>
 #include <stdlib.h>
 
 static vertex_set_entry* vertex_set_entry_alloc(size_t vertex_id)
@@ -174,27 +173,21 @@ int vertex_set_add(vertex_set* set, size_t vertex_id)
     return RETURN_STATUS_OK;
 }
 
-bool vertex_set_contains(vertex_set* set, size_t vertex_id)
+int vertex_set_contains(vertex_set* set, size_t vertex_id)
 {
     size_t index;
     vertex_set_entry* p_entry;
-
-    if (!set)
-    {
-        return false;
-    }
-
     index = vertex_id & set->mask;
 
     for (p_entry = set->table[index]; p_entry; p_entry = p_entry->chain_next)
     {
         if (vertex_id == p_entry->vertex_id)
         {
-            return true;
+            return TRUE;
         }
     }
 
-    return false;
+    return FALSE;
 }
 
 size_t vertex_set_size(vertex_set* p_set) {
@@ -206,12 +199,6 @@ static void vertex_set_clear(vertex_set* set)
     vertex_set_entry* entry;
     vertex_set_entry* next_entry;
     size_t index;
-
-    if (!set)
-    {
-        return;
-    }
-
     entry = set->head;
 
     while (entry)

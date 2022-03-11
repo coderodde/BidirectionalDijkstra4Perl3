@@ -3,11 +3,6 @@
 
 #include "util.h"
 #include <stdlib.h>
-#include <stdbool.h>
-
-#ifdef	__cplusplus
-extern "C" {
-#endif
 
 typedef struct vertex_set_entry {
     size_t vertex_id;
@@ -34,14 +29,10 @@ vertex_set* vertex_set_alloc
 
 int vertex_set_add(vertex_set* p_set, size_t vertex_id);
 
-bool vertex_set_contains(vertex_set* p_set, size_t vertex_id);
+int vertex_set_contains(vertex_set* p_set, size_t vertex_id);
 
 size_t vertex_set_size(vertex_set* p_set);
 
 void vertex_set_free(vertex_set* p_set);
-
-#ifdef	__cplusplus
-}
-#endif
 
 #endif	/* COM_GITHUB_CODERODDE_BIDIR_SEARCH_VERTEX_SET_H */
